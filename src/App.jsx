@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function Header() {
   return (
     <header>
@@ -29,18 +30,14 @@ function RecipesIndex(props) {
     <div id="recipes-index">
       <h1>All recipes</h1>
       <p>The name is {props.name}</p>
-      <div className="recipes">
-        <h2>Raw Eggs</h2>
-        <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="" />
-        <p>Chef: Peter Jang</p>
-        <button>More info</button>
-      </div>
-      <div className="recipes">
-        <h2>Mud Pie</h2>
-        <img src="https://static.onecms.io/wp-content/uploads/sites/9/2017/12/mud-pie-XL-RECIPE2016.jpg" alt="" />
-        <p>Chef: Jay Wengrow</p>
-        <button>More info</button>
-      </div>
+      {props.recipes.map((recipe) => (
+        <div key={recipe.id} className="recipes">
+          <h2>{recipe.title}</h2>
+          <img src={recipe.image_url} alt="" />
+          <p>Chef: {recipe.chef}</p>
+          <button>More info</button>
+        </div>
+      ))}
     </div>
   );
 }
@@ -56,10 +53,32 @@ function Footer() {
 function Content() {
   let name = "PETER!!!";
 
+  let recipes = [
+    {
+      id: 1,
+      title: "Raw Eggs!!!",
+      chef: "Peter Jang",
+      image_url: "https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg",
+    },
+    {
+      id: 2,
+      title: "Mud Pie",
+      chef: "Jay Wengrow",
+      image_url: "https://static.onecms.io/wp-content/uploads/sites/9/2017/12/mud-pie-XL-RECIPE2016.jpg",
+    },
+    {
+      id: 3,
+      title: "Pizza",
+      chef: "Jay Wengrow",
+      image_url:
+        "https://static.onecms.io/wp-content/uploads/sites/9/2021/06/15/mozzarella-pizza-margherita-FT-RECIPE0621.jpg",
+    },
+  ];
+
   return (
     <div>
       <RecipesNew />
-      <RecipesIndex name={name} />
+      <RecipesIndex name={name} recipes={recipes} />
     </div>
   );
 }
