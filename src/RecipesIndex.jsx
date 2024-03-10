@@ -9,10 +9,12 @@ export function RecipesIndex(props) {
       <div className="cards">
         {props.recipes.map((recipe) => (
           <div key={recipe.id} className="recipes card">
-            <h2>{recipe.title}</h2>
             <img src={recipe.image_url} alt="" />
-            <p>Chef: {recipe.chef}</p>
-            <button>More info</button>
+            <div className="card-body">
+              <h2>{recipe.title}</h2>
+              <p>Chef: {recipe.chef}</p>
+              <button>More info</button>
+            </div>
           </div>
         ))}
       </div>
