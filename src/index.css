@@ -35,3 +35,8 @@ footer {
   margin-top: 1em;
   text-align: center;
 }
+
+main {
+  max-width: 50em;
+  margin: 0 auto;
+}

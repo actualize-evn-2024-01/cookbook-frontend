@@ -27,9 +27,9 @@ export function Content() {
   ];
 
   return (
-    <div>
+    <main>
       <RecipesNew />
       <RecipesIndex name={name} recipes={recipes} />
-    </div>
+    </main>
   );
 }
