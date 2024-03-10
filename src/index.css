@@ -5,6 +5,7 @@ html {
 body {
   margin: 0;
   font-family: system-ui;
+  background: url("https://www.toptal.com/designers/subtlepatterns/uploads/spikes.png");
 }
 
 header {
