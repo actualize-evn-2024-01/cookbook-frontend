@@ -1,30 +1,43 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <header>
+        <a href="#">Home</a> | <a href="#recipes-index">All recipes</a> | <a href="#recipes-new">New recipe</a>
+      </header>
+
+      <div id="recipes-new">
+        <h1>New recipe</h1>
+        <form>
+          <div>
+            Title: <input type="text" />
+          </div>
+          <div>
+            Chef: <input type="text" />
+          </div>
+          <button type="submit">Create recipe</button>
+        </form>
       </div>
-      <h1>Vite + React This is cool</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div id="recipes-index">
+        <h1>All recipes</h1>
+        <div className="recipes">
+          <h2>Raw Eggs</h2>
+          <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="" />
+          <p>Chef: Peter Jang</p>
+          <button>More info</button>
+        </div>
+        <div className="recipes">
+          <h2>Mud Pie</h2>
+          <img src="https://static.onecms.io/wp-content/uploads/sites/9/2017/12/mud-pie-XL-RECIPE2016.jpg" alt="" />
+          <p>Chef: Jay Wengrow</p>
+          <button>More info</button>
+        </div>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+
+      <footer>
+        <p>Copyright 2022</p>
+      </footer>
+    </div>
   );
 }
 
