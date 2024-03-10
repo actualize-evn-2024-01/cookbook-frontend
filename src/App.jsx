@@ -23,10 +23,12 @@ function RecipesNew() {
   );
 }
 
-function RecipesIndex() {
+function RecipesIndex(props) {
+  console.log("The props are", props);
   return (
     <div id="recipes-index">
       <h1>All recipes</h1>
+      <p>The name is {props.name}</p>
       <div className="recipes">
         <h2>Raw Eggs</h2>
         <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="" />
@@ -52,10 +54,12 @@ function Footer() {
 }
 
 function Content() {
+  let name = "PETER!!!";
+
   return (
     <div>
       <RecipesNew />
-      <RecipesIndex />
+      <RecipesIndex name={name} />
     </div>
   );
 }
