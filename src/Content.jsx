@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
 import { Modal } from "./Modal";
+import { RecipesShow } from "./RecipesShow";
 
 export function Content() {
   let name = "PETER!!!";
@@ -37,10 +38,7 @@ export function Content() {
       <RecipesNew />
       <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
-        <h2>{currentRecipe.title}</h2>
-        <p>Chef: {currentRecipe.chef}</p>
-        <p>Ingredients: {currentRecipe.ingredients}</p>
-        <p>Directions: {currentRecipe.directions}</p>
+        <RecipesShow recipe={currentRecipe} />
       </Modal>
     </main>
   );
