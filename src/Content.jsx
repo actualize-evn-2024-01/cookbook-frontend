@@ -9,6 +9,7 @@ export function Content() {
 
   // let recipes = [];
   const [recipes, setRecipes] = useState([]);
+  const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(true);
 
   const handleIndexRecipes = () => {
     axios.get("http://localhost:3000/recipes.json").then((response) => {
@@ -18,6 +19,10 @@ export function Content() {
     });
   };
 
+  const handleClose = () => {
+    setIsRecipesShowVisible(false);
+  };
+
   // handleIndexRecipes();
   useEffect(handleIndexRecipes, []);
 
@@ -25,7 +30,7 @@ export function Content() {
     <main>
       <RecipesNew />
       <RecipesIndex name={name} recipes={recipes} />
-      <Modal show={true}>
+      <Modal show={isRecipesShowVisible} onClose={handleClose}>
         <p>TEST</p>
         <p>TEST</p>
         <p>TEST</p>
