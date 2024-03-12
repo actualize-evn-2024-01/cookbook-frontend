@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
+import { Modal } from "./Modal";
 
 export function Content() {
   let name = "PETER!!!";
@@ -24,6 +25,13 @@ export function Content() {
     <main>
       <RecipesNew />
       <RecipesIndex name={name} recipes={recipes} />
+      <Modal show={true}>
+        <p>TEST</p>
+        <p>TEST</p>
+        <p>TEST</p>
+        <p>TEST</p>
+        <p>TEST</p>
+      </Modal>
     </main>
   );
 }
