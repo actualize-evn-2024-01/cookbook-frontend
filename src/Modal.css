@@ -27,4 +27,9 @@
   position: absolute;
   top: 0em;
   right: 0.2em;
+  color: gray;
+}
+
+.modal-main button.close:hover {
+  color: black;
 }
