@@ -1,8 +1,23 @@
+import axios from "axios";
+
 export function RecipesNew() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handleSubmit");
+    const params = new FormData(event.target);
+    axios
+      .post("http://localhost:3000/recipes.json", params)
+      .then((response) => {
+        console.log(response);
+        event.target.reset();
+      })
+      .catch((error) => console.log(error.response.data.errors));
+  };
+
   return (
     <div id="recipes-new">
       <h1>New recipe</h1>
-      <form method="POST" action="http://localhost:3000/recipes.json">
+      <form onSubmit={handleSubmit}>
         <div>
           Title: <input name="title" type="text" />
         </div>
