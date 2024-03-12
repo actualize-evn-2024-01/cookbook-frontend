@@ -13,7 +13,7 @@ export function RecipesIndex(props) {
             <div className="card-body">
               <h2>{recipe.title}</h2>
               <p>Chef: {recipe.chef}</p>
-              <button>More info</button>
+              <button onClick={props.onShowRecipe}>More info</button>
             </div>
           </div>
         ))}

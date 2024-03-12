@@ -9,7 +9,7 @@ export function Content() {
 
   // let recipes = [];
   const [recipes, setRecipes] = useState([]);
-  const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(true);
+  const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
 
   const handleIndexRecipes = () => {
     axios.get("http://localhost:3000/recipes.json").then((response) => {
@@ -17,6 +17,10 @@ export function Content() {
       // recipes = response.data;
       setRecipes(response.data);
     });
+  };
+
+  const handleShowRecipe = () => {
+    setIsRecipesShowVisible(true);
   };
 
   const handleClose = () => {
@@ -29,7 +33,7 @@ export function Content() {
   return (
     <main>
       <RecipesNew />
-      <RecipesIndex name={name} recipes={recipes} />
+      <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
         <p>TEST</p>
         <p>TEST</p>
