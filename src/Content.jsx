@@ -10,6 +10,7 @@ export function Content() {
   // let recipes = [];
   const [recipes, setRecipes] = useState([]);
   const [isRecipesShowVisible, setIsRecipesShowVisible] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState({});
 
   const handleIndexRecipes = () => {
     axios.get("http://localhost:3000/recipes.json").then((response) => {
@@ -19,8 +20,9 @@ export function Content() {
     });
   };
 
-  const handleShowRecipe = () => {
+  const handleShowRecipe = (recipe) => {
     setIsRecipesShowVisible(true);
+    setCurrentRecipe(recipe);
   };
 
   const handleClose = () => {
@@ -35,11 +37,10 @@ export function Content() {
       <RecipesNew />
       <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
-        <p>TEST</p>
-        <p>TEST</p>
-        <p>TEST</p>
-        <p>TEST</p>
-        <p>TEST</p>
+        <h2>{currentRecipe.title}</h2>
+        <p>Chef: {currentRecipe.chef}</p>
+        <p>Ingredients: {currentRecipe.ingredients}</p>
+        <p>Directions: {currentRecipe.directions}</p>
       </Modal>
     </main>
   );
