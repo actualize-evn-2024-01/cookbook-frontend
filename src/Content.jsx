@@ -26,6 +26,19 @@ export function Content() {
     setCurrentRecipe(recipe);
   };
 
+  const handleCreateRecipe = (params) => {
+    axios
+      .post("http://localhost:3000/recipes.json", params)
+      .then((response) => {
+        console.log(response);
+        // recipes.push(response.data);
+        setRecipes([...recipes, response.data]);
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
+  };
+
   const handleClose = () => {
     setIsRecipesShowVisible(false);
   };
@@ -35,7 +48,7 @@ export function Content() {
 
   return (
     <main>
-      <RecipesNew />
+      <RecipesNew onCreateRecipe={handleCreateRecipe} />
       <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
       <Modal show={isRecipesShowVisible} onClose={handleClose}>
         <RecipesShow recipe={currentRecipe} />
