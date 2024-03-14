@@ -73,11 +73,17 @@ export function Content() {
 
   return (
     <main>
-      <RecipesNew onCreateRecipe={handleCreateRecipe} />
-      <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
-      <Modal show={isRecipesShowVisible} onClose={handleClose}>
-        <RecipesShow recipe={currentRecipe} onUpdateRecipe={handleUpdateRecipe} onDestroyRecipe={handleDestroyRecipe} />
-      </Modal>
+      <div className="container">
+        <RecipesNew onCreateRecipe={handleCreateRecipe} />
+        <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
+        <Modal show={isRecipesShowVisible} onClose={handleClose}>
+          <RecipesShow
+            recipe={currentRecipe}
+            onUpdateRecipe={handleUpdateRecipe}
+            onDestroyRecipe={handleDestroyRecipe}
+          />
+        </Modal>
+      </div>
     </main>
   );
 }
