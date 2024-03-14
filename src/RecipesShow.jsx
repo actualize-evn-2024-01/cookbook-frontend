@@ -9,7 +9,7 @@ export function RecipesShow(props) {
   };
 
   const handleClick = () => {
-    props.onDestroyRecipe(props.recipe);
+    props.onDestroyRecipe(props.recipe.id);
   };
 
   return (

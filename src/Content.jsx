@@ -55,11 +55,11 @@ export function Content() {
     });
   };
 
-  const handleDestroyRecipe = (recipe) => {
-    console.log("GONNA DESTROY THIS THING: ", recipe);
-    axios.delete(`http://localhost:3000/recipes/${recipe.id}.json`).then((response) => {
+  const handleDestroyRecipe = (id) => {
+    console.log("GONNA DESTROY THIS THING: ", id);
+    axios.delete(`http://localhost:3000/recipes/${id}.json`).then((response) => {
       console.log(response);
-      setRecipes(recipes.filter((r) => r.id !== recipe.id));
+      setRecipes(recipes.filter((recipe) => recipe.id !== id));
       handleClose();
     });
   };
