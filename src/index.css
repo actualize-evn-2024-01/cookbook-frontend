@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Sixtyfour&display=swap");
+
 #root {
   font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}
+
+.navbar-brand {
+  font-family: Sixtyfour;
+  font-size: 5em !important;
 }
