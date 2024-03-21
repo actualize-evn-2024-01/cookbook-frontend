@@ -36,7 +36,9 @@ export function Header() {
                   New recipes
                 </a>
               </li>
-              <LogoutLink />
+              <li className="nav-item">
+                <LogoutLink />
+              </li>
             </ul>
           </div>
         </div>
