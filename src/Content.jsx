@@ -4,6 +4,8 @@ import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
 import { Modal } from "./Modal";
 import { RecipesShow } from "./RecipesShow";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Content() {
   let name = "PETER!!!";
@@ -74,6 +76,8 @@ export function Content() {
   return (
     <main>
       <div className="container">
+        <Signup />
+        <Login />
         <RecipesNew onCreateRecipe={handleCreateRecipe} />
         <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
         <Modal show={isRecipesShowVisible} onClose={handleClose}>

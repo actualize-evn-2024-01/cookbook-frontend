@@ -1,3 +1,5 @@
+import { LogoutLink } from "./LogoutLink";
+
 export function Header() {
   return (
     <header>
@@ -34,6 +36,7 @@ export function Header() {
                   New recipes
                 </a>
               </li>
+              <LogoutLink />
             </ul>
           </div>
         </div>
