@@ -4,6 +4,7 @@ import { RecipesIndex } from "./RecipesIndex";
 import { RecipesNew } from "./RecipesNew";
 import { Modal } from "./Modal";
 import { RecipesShow } from "./RecipesShow";
+import { RecipesShowPage } from "./RecipesShowPage";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { Routes, Route } from "react-router-dom";
@@ -85,6 +86,7 @@ export function Content() {
             path="/recipes"
             element={<RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />}
           />
+          <Route path="/recipes/:id" element={<RecipesShowPage />} />
           <Route path="/" element={<RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />} />
         </Routes>
 

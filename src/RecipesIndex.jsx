@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 
 export function RecipesIndex(props) {
   console.log("The props are", props);
@@ -18,6 +19,9 @@ export function RecipesIndex(props) {
                 <button className="btn btn-primary" onClick={() => props.onShowRecipe(recipe)}>
                   More info
                 </button>
+                <div>
+                  <Link to={`/recipes/${recipe.id}`}>More info on separate page</Link>
+                </div>
               </div>
             </div>
           </div>
