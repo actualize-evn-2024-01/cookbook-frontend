@@ -6,6 +6,7 @@ import { Modal } from "./Modal";
 import { RecipesShow } from "./RecipesShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   let name = "PETER!!!";
@@ -76,10 +77,17 @@ export function Content() {
   return (
     <main>
       <div className="container">
-        <Signup />
-        <Login />
-        <RecipesNew onCreateRecipe={handleCreateRecipe} />
-        <RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />
+        <Routes>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/recipes/new" element={<RecipesNew onCreateRecipe={handleCreateRecipe} />} />
+          <Route
+            path="/recipes"
+            element={<RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />}
+          />
+          <Route path="/" element={<RecipesIndex name={name} recipes={recipes} onShowRecipe={handleShowRecipe} />} />
+        </Routes>
+
         <Modal show={isRecipesShowVisible} onClose={handleClose}>
           <RecipesShow
             recipe={currentRecipe}

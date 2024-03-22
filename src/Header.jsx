@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
 
 export function Header() {
@@ -5,7 +6,7 @@ export function Header() {
     <header>
       <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             Cookr
           </a>
           <button
@@ -22,29 +23,29 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#recipes-index">
+                <Link className="nav-link" to="/recipes">
                   All recipes
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#recipes-new">
+                <Link className="nav-link" to="/recipes/new">
                   New recipes
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#signup">
+                <Link className="nav-link" to="/signup">
                   Signup
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#login">
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <LogoutLink />
