@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export function Signup() {
   const [name, setName] = useState("Test");
+  const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (event) => {
@@ -17,6 +18,7 @@ export function Signup() {
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
       .catch((error) => {
+        setStatus(error.response.status);
         console.log(error.response.data.errors);
         setErrors(error.response.data.errors);
       });
@@ -25,6 +27,7 @@ export function Signup() {
   return (
     <div id="signup">
       <h1>Signup</h1>
+      {status ? <img src={`https://http.cat/${status}`} alt="" /> : null}
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
