@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 export function Signup() {
+  const [name, setName] = useState("Test");
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (event) => {
@@ -31,7 +32,15 @@ export function Signup() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          Name: <input className="form-control" name="name" type="text" />
+          Name:{" "}
+          <input
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            className="form-control"
+            name="name"
+            type="text"
+          />
+          <small>{20 - name.length} characters remaining</small>
         </div>
         <div className="mb-3">
           Email: <input className="form-control" name="email" type="email" />
