@@ -9,7 +9,13 @@ export function RecipesIndex(props) {
     <div id="recipes-index">
       <h1>All recipes</h1>
       <p>The name is {props.name}</p>
-      Search: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
+      Search:{" "}
+      <input type="text" list="titles" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
+      <datalist id="titles">
+        {props.recipes.map((recipe) => (
+          <option key="recipe.id">{recipe.title}</option>
+        ))}
+      </datalist>
       <div className="row row-cols-1 row-cols-md-4 g-4">
         {props.recipes
           .filter((recipe) => recipe.title.toLowerCase().includes(searchFilter.toLowerCase()))
