@@ -18,7 +18,7 @@ export function Content() {
   const [currentRecipe, setCurrentRecipe] = useState({});
 
   const handleIndexRecipes = () => {
-    axios.get("http://localhost:3000/recipes.json").then((response) => {
+    axios.get("/recipes.json").then((response) => {
       console.log("THE DATA FROM THE BACKEND: ", response);
       // recipes = response.data;
       setRecipes(response.data);
@@ -32,7 +32,7 @@ export function Content() {
 
   const handleCreateRecipe = (params) => {
     axios
-      .post("http://localhost:3000/recipes.json", params)
+      .post("/recipes.json", params)
       .then((response) => {
         console.log(response);
         // recipes.push(response.data);
@@ -44,7 +44,7 @@ export function Content() {
   };
 
   const handleUpdateRecipe = (id, params) => {
-    axios.patch(`http://localhost:3000/recipes/${id}.json`, params).then((response) => {
+    axios.patch(`/recipes/${id}.json`, params).then((response) => {
       console.log(response.data);
       setRecipes(
         recipes.map((recipe) => {
@@ -61,7 +61,7 @@ export function Content() {
 
   const handleDestroyRecipe = (id) => {
     console.log("GONNA DESTROY THIS THING: ", id);
-    axios.delete(`http://localhost:3000/recipes/${id}.json`).then((response) => {
+    axios.delete(`/recipes/${id}.json`).then((response) => {
       console.log(response);
       setRecipes(recipes.filter((recipe) => recipe.id !== id));
       handleClose();
